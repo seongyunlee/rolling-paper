@@ -27,7 +27,7 @@ exports.register = async(req,res) =>{
         const coll= db.collection('user');
         const result = await coll.findOne({id:email});
         if(result){
-            res.send("<script>alert('이미 존재하는 이메일입니다.');location.href='/register;</script>");
+            res.send("<script>alert('이미 존재하는 이메일입니다.');location.href='/register';</script>");
         }
         else{
             await coll.insertOne({id:email,password:password});
