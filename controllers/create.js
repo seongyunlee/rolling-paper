@@ -15,7 +15,18 @@ exports.createNew =  async(req,res) =>{
             console.log(result);
             break;
         }
-        await coll.insertOne({id:newid,backColor:req.query.color,title:req.query.title});
+        await coll.insertOne({id:newid,backColor:req.query.color,title:req.query.title,owner:req.cookies.user_id,message:[]});
         res.redirect('http://'+req.headers.host+`/paper/share/${newid}`);    
+    }) (req,res);
+}
+
+exports.create =  async(req,res) =>{
+    await (async (req,res)=>{
+        if(req.cookies.user_id){
+                res.render('create',{});
+        }
+        else{
+            res.send("<script>alert('로그인이 필요합니다.');location.href='/login';</script>");
+        }
     }) (req,res);
 }

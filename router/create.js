@@ -4,10 +4,11 @@ const controller = require('../controllers/create');
 
 
 // /create/
-router.get('/',(req,res)=>res.render('create',{}));
+router.get('/',controller.create);
 
 // create/new
 router.get('/new',controller.createNew);
+
 
 
 

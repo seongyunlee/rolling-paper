@@ -7,22 +7,28 @@
     <body>
         <div class="container">
             <div class="fixed-ratio">
-            <div class="preview" style="background-color:<%=backColor%>;">
+            <div class="preview" style="background-image:<%=backColor%>;">
 
                 <% if(messages) messages.forEach(e=>{%>
                 <div class="message-item"><%=e%></div>
                     <%})%>
             </div>
             <div class="btn-box">
-                <div class="btn-newMessage">+</div>
+                <div class="btn-newMessage">
+                    <i class="fa-solid fa-pen-to-square fa"></i>
+                </div>
             </div>
         </div>
         <form action="/paper/newMessage/<%=paperId%>" onsubmit="chkform()" method="post">
             <div class="message-box hidden">
             <textarea type="text" name="message" class="input-message"></textarea>
                 <div class="msg-btn-box">
-                    <button class="btn-msg send" type="submit">V</button>
-                    <button class="btn-msg cancel" type="button">X</button>
+                    <button class="btn-msg send" type="submit">
+                        <i class="fa-solid fa-check"></i>
+                    </button>
+                    <button class="btn-msg cancel" type="button">
+                        <i class="fa-regular fa-xmark"></i>
+                    </button>
                 </div>
             </div>
         </form></div>

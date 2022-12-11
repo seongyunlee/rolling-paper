@@ -12,8 +12,12 @@
                 </div>
                 <div class="paper-content" id="paper-desc">한 해 동안 못 다한 마음을 <br> 전해보세요</div>
                 <div class="link-box">
+                    <% if(user_id!=null) {%>
+                    <a class="paper-content btn" id="btn-login" href="/user/list/<%=user_id%>">내 페이퍼</a>
+                    <%}else{%>
                     <a class="paper-content btn" id="btn-login" href="/login">로그인</a>
-                    <a class="paper-content btn" id="btn-newPaper" href="/create">새 롤링페이퍼 만들기</a>
+                    <%}%>
+                    <a class="paper-content btn" id="btn-newPaper" href="/create">새 롤링페이퍼<br> 만들기</a>
                 </div>
             </div>
         </div>

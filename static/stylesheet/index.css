@@ -4,10 +4,12 @@ img{
 }
 
 .paper-content{
-    font-size: 3rem;
+    font-size: 5rem;
+    text-align: center;
 }
 div.paper{
     justify-content: space-between;
+    font-size: 3rem;
 }
 .paper-title{
     background-size: contain;

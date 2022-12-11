@@ -2,7 +2,7 @@
     flex-direction: column;
 }
 .fixed-ratio{
-    height:80%;
+    height:90%;
     aspect-ratio: 2/5;
     display: flex;
     flex-direction: column;
@@ -11,17 +11,17 @@
 }
 @media screen and (orientation:portrait) {
     .fixed-ratio{
-        aspect-ratio: 2/5;
-        width:80%;
+        width:90%;
+        height:90%;
     }
 }
 .preview{
     height :50%;
-    aspect-ratio: 4/5;
+    aspect-ratio: 3/5;
     max-width: 100%;
     background:white;
     border-radius: 5rem;
-    border: 1px solid black;
+    border: 3px dashed black;
 }
 div.column-box{
     display: flex;
@@ -45,15 +45,16 @@ div.column-box{
     flex-direction: row;
 }
 label.choose-title{
-    font-size: 5rem;
+    font-size: 7rem;
+    padding-bottom: 2rem;
 }
 .paper-url{
-    font-size: 1.5rem;
+    font-size: 3rem;
     border:5px solid black;
     margin:3px;
     padding:10px;
     border-radius: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 .options-box{
     width:100%;
@@ -103,23 +104,22 @@ div.btn{
     right:0;
     align-self: center;
 }
-.sharing-box{
-    margin-top:10px;
-}
 .share-item{
     float:left;
     margin-right: 2rem;
-    width:7rem;
-    height:7rem;
+    width:10rem;
+    height:10rem;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
 }
 
 .column-box > div{
     flex:1;
 }
 .copy-link{
-    background-image: url('/asset/copy_icon.png');
-    background-size: cover;
     background-color: gray;
 }
 .share-kakao{

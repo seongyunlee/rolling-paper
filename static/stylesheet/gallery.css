@@ -12,8 +12,8 @@
 }
 @media screen and (orientation:portrait) {
     .fixed-ratio{
-        aspect-ratio: 2/5;
-        width:80%;
+        width:100%;
+        height:100%;
     }
 }
 .preview{
@@ -22,7 +22,7 @@
     max-height: 100%;
     background:white;
     border-radius: 5rem;
-    border: 1px solid black;
+    border: 3px dashed black;
     display:grid;
     padding:5rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -35,11 +35,13 @@
 div.btn-newMessage{
     height:100%;
     aspect-ratio: 1/1;
-    background-color: aquamarine;
+    background-color: white;
+    border: 2px solid black;
+
     border-radius: 50%;
     font-size: 4rem;
-    border: 1px solid black;
     display: flex;
+
 }
 div.btn-box{
     width:90%;
@@ -68,14 +70,14 @@ div.message-box{
     justify-content: space-around;    
 }
 .btn-msg{
-    width:5rem !important;
-    height: 5rem !important;
+    width:7rem !important;
+    height: 7rem !important;
     border: 3px solid black;
     border-radius: 50%;
-    font-size: 5rem;
+    font-size: 3rem;
 }
 .send{
-    background-color: greenyellow;
+    background-color: green;
     margin-right: 3rem;
 }
 .cancel{
@@ -84,17 +86,26 @@ div.message-box{
 textarea{
     background-color: white;
     border:1rem solid black;
-    width:30%;
+    width:40%;
     font-size: 2rem;
     aspect-ratio: 1/1;
     resize:none;
     border-radius: 5rem;
     padding:5%;
+    font-family: inherit;
+    font-size: 5rem;
 }
 .message-item{
     font-size: 3rem;
     height:fit-content;
-    border:1px solid black;
+    border:3px dashed black;
+    padding:1rem;
     border-radius: 1rem;
     word-break: break-all;
+}
+button{
+    padding:1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

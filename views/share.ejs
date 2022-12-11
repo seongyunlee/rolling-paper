@@ -7,7 +7,7 @@
     <body>
         <div class="container">
             <div class="fixed-ratio">
-            <div class="preview" style="background-color:<%=backColor%>;">  
+            <div class="preview" style="background-image:<%=backColor%>;">  
             </div>
             <div class="choose-box ">
                 <div class="choose-mode" id="choose-color">
@@ -16,9 +16,15 @@
                             <label class="choose-title" ><%=title%></label>
                             <div class="paper-url" id="paper-url"><%=url%></div>
                             <div class="sharing-box">
-                                <div class="share-item copy-link"></div>
-                                <div class="share-item share-kakao">KAKAO</div>
-                                <div onclick="location.href='/paper/<%=paperId%>'" class="share-item btn-draw">바로 메시지 남기기</div>
+                                <div onclick="alert('not support yet')" class="share-item copy-link">
+                                    <i class="fa-solid fa-copy fa"></i>
+                                </div>
+                                <div onclick="alert('not support yet')" class="share-item share-kakao">
+                                    <i class="fa-solid fa-share-from-square"></i>
+                                </div>
+                                <div onclick="location.href='/paper/<%=paperId%>'" class="share-item btn-draw">
+                                    <i class="fa-solid fa-pen-to-square fa"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
