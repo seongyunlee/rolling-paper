@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <%- include('./head') %>
+        <link rel="stylesheet" href="/stylesheet/share.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="fixed-ratio">
+            <div class="preview" style="background-color:<%=backColor%>;">  
+            </div>
+            <div class="choose-box ">
+                <div class="choose-mode" id="choose-color">
+                    <div class="options-box">
+                        <div class="column-box">
+                            <label class="choose-title" ><%=title%></label>
+                            <div class="paper-url" id="paper-url"><%=url%></div>
+                            <div class="sharing-box">
+                                <div class="share-item copy-link"></div>
+                                <div class="share-item share-kakao">KAKAO</div>
+                                <div onclick="location.href='/paper/<%=paperId%>'" class="share-item btn-draw">바로 메시지 남기기</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+    <script src="/script/share.js"></script>
+    <script src="/script/main.js"></script>
+</html>

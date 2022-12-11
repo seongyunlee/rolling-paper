@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <%- include('./head') %>
+        <link rel="stylesheet" href="/stylesheet/gallery.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="fixed-ratio">
+            <div class="preview" style="background-color:<%=backColor%>;">
+
+                <% if(messages) messages.forEach(e=>{%>
+                <div class="message-item"><%=e%></div>
+                    <%})%>
+            </div>
+            <div class="btn-box">
+                <div class="btn-newMessage">+</div>
+            </div>
+        </div>
+        <form action="/paper/newMessage/<%=paperId%>" onsubmit="chkform()" method="post">
+            <div class="message-box hidden">
+            <textarea type="text" name="message" class="input-message"></textarea>
+                <div class="msg-btn-box">
+                    <button class="btn-msg send" type="submit">V</button>
+                    <button class="btn-msg cancel" type="button">X</button>
+                </div>
+            </div>
+        </form></div>
+    </body>
+    <script src="/script/gallery.js"></script>
+    <script src="/script/main.js"></script>
+</html>

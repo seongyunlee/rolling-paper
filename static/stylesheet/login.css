@@ -1,0 +1,23 @@
+div.content{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    align-items: center;
+    row-gap: 10px;
+}
+a.goHome{
+    position: absolute;
+    top:10%;
+    left:10%
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: inherit;
+}
+div.field{
+    display: flex;
+    flex-direction: column;
+    row-gap: inherit;
+}
