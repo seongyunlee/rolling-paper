@@ -6,7 +6,9 @@ exports.share = async(req,res) =>{
     await (async (req,res)=>{
         const db = mongo.db('rollingpaper');
         const coll= db.collection('paper');
-        const result = await (await coll.find({id:Number(req.params.paperId)}).toArray()).at(0);
+        const result = await coll.find({id:Number(req.params.paperId)}).toArray();
+        console.log(result);
+        console.log(result.at(0));
         res.render('share',{paperId:result.id,title:result.title,backColor:result.backColor,url:`http:/172.30.1.14/paper/${result.id}`});
     })(req,res);
 }
