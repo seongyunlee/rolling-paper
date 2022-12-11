@@ -2,24 +2,17 @@ const {mongo} = require('../index');
 const {createCanvas} =require('canvas');
 const { request } = require('express');
 
+//make /share page
 exports.share = async(req,res) =>{
     await (async (req,res)=>{
         const db = mongo.db('rollingpaper');
         const coll= db.collection('paper');
         const result = await (await coll.find({id:Number(req.params.paperId)}).toArray()).at(0);
-        res.render('share',{paperId:result.id,title:result.title,backColor:result.backColor,url:`http:/172.30.1.14/paper/${result.id}`});
+        res.render('share',{paperId:result.id,title:result.title,backColor:result.backColor,url:`http://52.78.137.254/paper/${result.id}`});
     })(req,res);
 }
 
-exports.draw = async(req,res) =>{
-    await (async (req,res)=>{
-        const db = mongo.db('rollingpaper');
-        const coll= db.collection('paper');
-        const result = await (await coll.find({id:Number(req.params.paperId)}).toArray()).at(0);
-        res.render('share',{paperId:result.id,title:result.title,backColor:result.backColor,url:`http:/172.30.1.14/paper/${result.id}`});
-    })(req,res);
-}
-
+// get post data body and redirect to referer
 exports.newMessage = async(req,res) =>{
     await (async (req,res)=>{
         if(req.body.message==''){
@@ -36,6 +29,7 @@ exports.newMessage = async(req,res) =>{
     })(req,res);
 }
 
+// make /page/{pageID} page
 exports.gallery = async(req,res) =>{
     await (async (req,res)=>{
         const db = mongo.db('rollingpaper');

@@ -1,6 +1,7 @@
 const idInput = document.querySelector('#input-id');
 const pwdInput = document.querySelector('#input-pwd');
 
+//check form
 const chkform = ()=>{
     if(idInput.value==''){
         alert("아이디를 입력하세요");

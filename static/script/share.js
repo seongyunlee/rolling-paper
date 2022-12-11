@@ -5,6 +5,7 @@ const paper_url = document.querySelector('.paper-url')
 const paper = document.querySelector(".fixed-ratio");
 const html = document.querySelector("html")
 
+//automatically resize the root font size
 function setRootFontSize() {
     
     if (paper!=null)  html.style.fontSize = parseFloat(getComputedStyle(paper).getPropertyValue('height'))/100 +'px';
@@ -13,6 +14,9 @@ function setRootFontSize() {
   addEventListener("load",setRootFontSize);
   addEventListener("resize", setRootFontSize);
 
+
+//clipboard api is not supported in http
+/*
 const copy_url = ()=>{
         const content = document.getElementById('paper-url'); 
         content.select();
@@ -21,5 +25,5 @@ const copy_url = ()=>{
         content.setSelectionRange(0, 0); //copy to clip board
     
 }
-
+*/
 copy_btn.addEventListener('click',copy_url);

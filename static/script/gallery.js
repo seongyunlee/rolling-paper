@@ -6,6 +6,8 @@ const messageBox = document.querySelector('.message-box');
 const paper = document.querySelector(".fixed-ratio");
 const html = document.querySelector("html")
 
+
+//automatically resize the root font size
 function setRootFontSize() {
     
     if (paper!=null)  html.style.fontSize = parseFloat(getComputedStyle(paper).getPropertyValue('height'))/100 +'px';
@@ -14,6 +16,8 @@ function setRootFontSize() {
   addEventListener("load",setRootFontSize);
   addEventListener("resize", setRootFontSize);
 
+
+//chk form
 const chkform = ()=>{
     if(messageInput.value==''){
         alert("메시지를 입력하세요");

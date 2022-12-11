@@ -3,6 +3,7 @@ const {createCanvas} =require('canvas');
 const { request } = require('express');
 const cookie = require('cookie');
 
+// get post data body and redirect to referer
 exports.login = async(req,res) =>{
     await (async (req,res)=>{
         const {email, password} = req.body;
@@ -20,6 +21,7 @@ exports.login = async(req,res) =>{
     })(req,res);
 }
 
+// get post data body, make new user entitiy and redirect to referer
 exports.register = async(req,res) =>{
     await (async (req,res)=>{
         const {email, password} = req.body;
@@ -36,6 +38,8 @@ exports.register = async(req,res) =>{
     })(req,res);
 }
 
+
+//make /list/{user_id} page
 exports.list = async(req,res) =>{
     await (async (req,res)=>{
         const {email} = req.params;

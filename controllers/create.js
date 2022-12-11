@@ -3,6 +3,8 @@ const {createCanvas} =require('canvas');
 const { request } = require('express');
 const url = require('url');
 
+
+//create new paper
 exports.createNew =  async(req,res) =>{
     await (async (req,res)=>{
         
@@ -20,6 +22,7 @@ exports.createNew =  async(req,res) =>{
     }) (req,res);
 }
 
+//craete new message
 exports.create =  async(req,res) =>{
     await (async (req,res)=>{
         if(req.cookies.user_id){
