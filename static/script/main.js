@@ -1,12 +1,11 @@
 
-var paper = document.querySelector(".paper");
+var fixedratio = document.querySelector(".fixed-ratio");
 var html = document.querySelector("html")
 //automatically resize the root font size
+
 function setRootFontSize() {
-    
-    if (paper!=null)  html.style.fontSize = parseFloat(getComputedStyle(paper).getPropertyValue('height'))/100 +'px';
-    //console.log(html.style.fontSize);
+    if (fixedratio!=null)  html.style.fontSize = parseFloat(getComputedStyle(fixedratio).getPropertyValue('height'))/90 +'px';
 }
-  addEventListener("load",setRootFontSize);
-  addEventListener("resize", setRootFontSize);
+addEventListener("load",setRootFontSize);
+addEventListener("resize", setRootFontSize);
   

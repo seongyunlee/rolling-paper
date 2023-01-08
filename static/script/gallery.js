@@ -1,41 +1,37 @@
-const writeBtn = document.querySelector('.btn-newMessage');
-const messageInput = document.querySelector('.input-message');
-const sendBtn = document.querySelector('.send');
-const cancelBtn = document.querySelector('.cancel');
-const messageBox = document.querySelector('.message-box');
-const paper = document.querySelector(".fixed-ratio");
-const html = document.querySelector("html")
+const textField = document.querySelector('.text-field');
+const doneBtn = document.querySelector('#done-btn');
+const movingBox = document.querySelector('.moving-box')
+const textComment = document.querySelector('.text-comment');
+const preview = document.querySelector('.preview');
+let moving = false;
+let prevX,prevY;
 
-
-//automatically resize the root font size
-function setRootFontSize() {
-    
-    if (paper!=null)  html.style.fontSize = parseFloat(getComputedStyle(paper).getPropertyValue('height'))/100 +'px';
-    //console.log(html.style.fontSize);
+const textDone = () =>{
+    textComment.classList.add('hidden');
+    movingBox.classList.remove('hidden');
+    movingBox.innerHTML=textField.value;
 }
-  addEventListener("load",setRootFontSize);
-  addEventListener("resize", setRootFontSize);
 
 
-//chk form
-const chkform = ()=>{
-    if(messageInput.value==''){
-        alert("메시지를 입력하세요");
-        return false;
-    }
-    return true;
+const resize = (e)=>{
+    e.style.height='auto';
+    e.style.height=(12+e.scrollHeight) +'px';
 }
-writeBtn.addEventListener('click',()=>{
-    messageBox.classList.remove('hidden');
-})
 
-cancelBtn.addEventListener('click',()=>{
-    messageInput.value = '';
-    messageBox.classList.add('hidden');
-})
+const moveBox = (e)=>{
+    const touch = e.changedTouches[0];
+    console.log(movingBox.style.top,movingBox.style.left);
+    movingBox.style.top=`${movingBox.offsetTop+(touch.clientY-prevY)}px`;
+    movingBox.style.left=`${movingBox.offsetLeft+(touch.clientX-prevX)}px`;
+    prevX=touch.clientX;
+    prevY=touch.clientY;
+}
 
-sendBtn.addEventListener('click',()=>{
-    const message = messageInput.value;
-    url.searchParams.append("message",message);
-    location.replace(decodeURIComponent(url));
-})
+const startMoveBox = (e)=>{
+    const touch = e.changedTouches[0];
+    prevX=touch.clientX;
+    prevY=touch.clientY;
+}
+doneBtn.addEventListener('click',textDone);
+preview.addEventListener('touchmove',moveBox);
+preview.addEventListener('touchstart',startMoveBox);

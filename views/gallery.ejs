@@ -2,6 +2,8 @@
 <html lang="ko">
     <head>
         <%- include('./head') %>
+        <link rel="stylesheet" href="/stylesheet/global.css">
+        <link rel="stylesheet" href="/stylesheet/frame.css">
         <link rel="stylesheet" href="/stylesheet/gallery.css">
     </head>
     <body>
@@ -14,25 +16,23 @@
                     <%})%>
             </div>
             <div class="btn-box">
-                <div class="btn-newMessage">
-                    <i class="fa-solid fa-pen-to-square fa"></i>
+                <div class="btn-item">텍스트로 남기기</div>
+                <div class="btn-item">손글씨로 남기기</div>
+                <div class="btn-item">새로운 롤링페이퍼 만들기</div>
+            </div>
+            <div class="comment text-comment hidden" id="text-comment">
+                <textarea class="text-field" rows="1"></textarea>
+                <div class="text-button-box">
+                    <div class="text-button-item">취소</div>
+                    <div class="text-button-item" id="done-btn">완료</div>
                 </div>
             </div>
+            <span draggable="true" class="comment moving-box">
+                sdfas
+            </span>
         </div>
-        <form action="/paper/newMessage/<%=paperId%>" onsubmit="chkform()" method="post">
-            <div class="message-box hidden">
-            <textarea type="text" name="message" class="input-message"></textarea>
-                <div class="msg-btn-box">
-                    <button class="btn-msg send" type="submit">
-                        <i class="fa-solid fa-check"></i>
-                    </button>
-                    <button class="btn-msg cancel" type="button">
-                        <i class="fa-regular fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-        </form></div>
+        </div>
     </body>
-    <script src="/script/gallery.js"></script>
     <script src="/script/main.js"></script>
+    <script src="/script/gallery.js"></script>
 </html>

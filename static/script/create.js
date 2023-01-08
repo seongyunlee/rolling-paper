@@ -1,13 +1,7 @@
-const preview = document.querySelector('.preview');
 const colors = document.querySelectorAll('.color-option');
 const makebtn = document.querySelector('#btn-make-paper');
-const titleInp = document.querySelector('.input-title')
-const paper = document.querySelector(".fixed-ratio");
-const html = document.querySelector("html")
-
-function setRootFontSize() {    
-    if (paper!=null)  html.style.fontSize = parseFloat(getComputedStyle(paper).getPropertyValue('height'))/100 +'px';
-}
+const titleInp = document.querySelector('.input-title');
+const preview = document.querySelector('.preview');
 
 makebtn.addEventListener('click',()=>{
     if(titleInp.value==''){
@@ -22,8 +16,4 @@ makebtn.addEventListener('click',()=>{
 
 colors.forEach((element)=>{
     element.addEventListener('click',(e)=>{preview.style.backgroundImage=window.getComputedStyle(e.target).getPropertyValue("background-image");
-    console.log(window.getComputedStyle(e.target).getPropertyValue("background-image").cssText)});
-});
-
-addEventListener("load",setRootFontSize);
-addEventListener("resize", setRootFontSize);
+})});

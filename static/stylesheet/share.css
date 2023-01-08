@@ -1,124 +1,32 @@
-.container{
-    flex-direction: column;
-}
-.fixed-ratio{
-    height:90%;
-    aspect-ratio: 2/5;
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    box-sizing: border-box;
-}
-@media screen and (orientation:portrait) {
-    .fixed-ratio{
-        width:90%;
-        height:90%;
-    }
-}
-.preview{
-    height :50%;
-    aspect-ratio: 3/5;
-    max-width: 100%;
-    background:white;
-    border-radius: 5rem;
-    border: 3px dashed black;
-}
-div.column-box{
-    display: flex;
-    flex-direction: column;
-}
-.choose-mode{
-    width:100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.choose-box{
-    height: 40%;
-    width: 100%;
-    margin-top:5%;
-    background-color: white;
-    border-radius: 5rem;
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: row;
-}
-label.choose-title{
-    font-size: 7rem;
-    padding-bottom: 2rem;
-}
 .paper-url{
-    font-size: 3rem;
-    border:5px solid black;
+    font-size: 2rem;
+    border:3px solid black;
     margin:3px;
     padding:10px;
     border-radius: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5%;
+    width: 90%;
+    box-sizing: border-box;
 }
-.options-box{
-    width:100%;
-    height: 100%;
+.share-box{
+    width:90%;
     display: flex;
-}
-.color-options{
-    display: flex;
-    margin-top: 10%;
     flex-direction: row;
-    justify-content: space-between;
-    height:20%;
-    width:80%;
-}
-.color-option{
-    height: 90%;
-    border-radius: 50%;
-    aspect-ratio: 1/1;
-    border: 2px solid gray;
-    margin-right: 4px;
-}
-.selected::after{
-    content:"V";
-    position:relative;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    font-size: 2rem;
-}
-.color-option:nth-child(1){
-    background-color: white;
-}
-.color-option:nth-child(2){
-    background-color: sandybrown;
-}
-.color-option:nth-child(3){
-    background-color: wheat;
-}
-.color-option:nth-child(4){
-    background-color: orchid
-}
-.color-option:nth-child(5){
-    background-color: greenyellow;
-}
-div.btn{
-    font-size: 10rem;
-    right:0;
-    align-self: center;
+    justify-content: space-around;
+    padding: 0 10% 0 10%;
 }
 .share-item{
     float:left;
     margin-right: 2rem;
-    width:10rem;
-    height:10rem;
+    width:5rem;
+    height:5rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 6rem;
+    font-size: 2rem;
 }
 
-.column-box > div{
-    flex:1;
-}
 .copy-link{
     background-color: gray;
 }

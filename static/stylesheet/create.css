@@ -1,73 +1,42 @@
 .container{
     flex-direction: column;
 }
-.fixed-ratio{
-    height:90%;
-    aspect-ratio: 2/5;
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    box-sizing: border-box;
-}
-@media screen and (orientation:portrait) {
-    .fixed-ratio{
-        width:90%;
-        height:90%;
-    }
-}
-body{
-    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
-}
 .preview{
-    height :50%;
+    height:60%;
     aspect-ratio: 3/5;
-    max-width: 100%;
-    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    max-height: 100%;
+    background:white;
     border-radius: 5rem;
     border: 3px dashed black;
+    align-items: flex-start;
+    overflow:hidden;
 }
 div.column-box{
     display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-.choose-mode{
-    width:100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
 }
 .choose-box{
-    height: 40%;
     width: 100%;
-    margin-top:5%;
+    height:30%;
+    padding: 5%;
+    margin-top: 2rem;
+    font-size: 3.5rem;
     background-color: white;
     border-radius: 5rem;
     display: flex;
-    box-sizing: border-box;
     flex-direction: row;
 }
-label.choose-title{
-    font-size: 4rem;
-    padding-bottom: 2rem;
-}
-.options-box{
-    width:100%;
-    height: 100%;
-    padding:1%;
-    display: flex;
-    justify-content: center;
-}
-.color-options{
+.color-box{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height:6rem;
+    height:4rem;
     width:80%;
 }
 .color-option{
-    height: 6rem;
+    height: 100%;
     border-radius: 50%;
     aspect-ratio: 1/1;
     border: 2px solid gray;
@@ -87,6 +56,12 @@ label.choose-title{
     flex-direction: column;
     width:100%;
 }
+div.btn{
+    width:20%;
+    right:0;
+    font-size: inherit;
+    align-self: center;
+}
 .color-option:nth-child(1){
     background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
 }
@@ -102,24 +77,4 @@ label.choose-title{
 .color-option:nth-child(5){
     background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
 }
-.sharing-box>div{
-    float:left;
-    margin-right: 5px;
-}
-div.btn{
-    width:20%;
-    font-size: 4rem;
-    right:0;
-    align-self: center;
-}
-.column-box > div{
-    flex:1;
-}
-input{
-    height:4rem;
-    width:80%;
-    border: 3px solid black;
-    border-radius: 1rem;
-    font-size: 3rem;
-    font-family: inherit;
-}
+
