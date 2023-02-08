@@ -97,7 +97,7 @@ const sendComment = (e) => {
     console.log(posX, posY);
     form.setAttribute(
       "action",
-      "http://localhost/paper/newMessage/" + location.href.split("/").at(-1)
+      "/paper/newMessage/" + location.href.split("/").at(-1)
     );
     const params = { posX: posX, posY: posY, message: message };
     for (var key in params) {
