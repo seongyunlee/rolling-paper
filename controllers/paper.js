@@ -9,17 +9,22 @@ exports.share = async (req, res) => {
   const db = mongo.db("rollingpaper");
   const coll = db.collection("paper");
   console.log(db, coll, req.params.paperId);
-  const result = await (
-    await coll.find({ id: Number(req.params.paperId) }).toArray()
-  ).at(0);
-  console.log(result);
-  const baseImage = `${configJson.s3Url}/rollingpaper/userImage/${req.params.paperId}.png`;
-  res.render("share", {
-    paperId: result.id,
-    title: result.title,
-    background: baseImage,
-    url: `${configJson.domain}/paper/${result.id}`,
-  });
+  const dbresult = await coll
+    .find({ id: Number(req.params.paperId) })
+    .toArray();
+  console.log(dbresult);
+  if (dbresult) {
+    console.log(result);
+    const baseImage = `${configJson.s3Url}/rollingpaper/userImage/${req.params.paperId}.png`;
+    res.render("share", {
+      paperId: result.id,
+      title: result.title,
+      background: baseImage,
+      url: `${configJson.domain}/paper/${result.id}`,
+    });
+  } else {
+    res.redirect("/");
+  }
 };
 // get post data body and redirect to referer
 /*
