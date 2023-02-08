@@ -28,7 +28,9 @@
       <div class="fixed-ratio">
         <div
           class="preview"
-          style="background-image: url('<%=background%>')"
+          style="
+            background-image: url('<%=`${background}?date=${Date.now()}`%>');
+          "
         ></div>
         <div class="btn-box" id="main-options">
           <div class="btn-item" id="type-message">텍스트로 남기기</div>
