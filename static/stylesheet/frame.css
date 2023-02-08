@@ -1,16 +1,16 @@
-.fixed-ratio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height:100%;
-    aspect-ratio: 3/5;
-    padding:3%;
-    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+.fixed-ratio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  aspect-ratio: 3/5;
+  padding: 3%;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
-@media screen and (max-aspect-ratio:3/5) {
-    .fixed-ratio{
-        aspect-ratio: 3/5;
-        width:100%;
-    }
+@media screen and (max-aspect-ratio: 3/5) {
+  .fixed-ratio {
+    aspect-ratio: 3/5;
+    width: 100%;
+  }
 }

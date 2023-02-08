@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <%- include('./head') %>
-        <link rel="stylesheet" href="/stylesheet/global.css">
-        <link rel="stylesheet" href="/stylesheet/frame.css">
-        <link rel="stylesheet" href="/stylesheet/gallery.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="fixed-ratio">
-            <div class="preview" style="background-image:<%=backColor%>;">
-
-                <% if(messages) messages.forEach(e=>{%>
-                <div class="message-item"><%=e%></div>
-                    <%})%>
-            </div>
-            <div class="btn-box">
-                <div class="btn-item">텍스트로 남기기</div>
-                <div class="btn-item">손글씨로 남기기</div>
-                <div class="btn-item">새로운 롤링페이퍼 만들기</div>
-            </div>
-            <div class="comment text-comment hidden" id="text-comment">
-                <textarea class="text-field" rows="1"></textarea>
-                <div class="text-button-box">
-                    <div class="text-button-item">취소</div>
-                    <div class="text-button-item" id="done-btn">완료</div>
-                </div>
-            </div>
-            <span draggable="true" class="comment moving-box">
-                sdfas
-            </span>
+  <head>
+    <%- include('./head') %>
+    <link rel="stylesheet" href="/stylesheet/global.css" />
+    <link rel="stylesheet" href="/stylesheet/frame.css" />
+    <link rel="stylesheet" href="/stylesheet/gallery.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="message-box hidden" id="type-message-box">
+        <textarea
+          placeholder="메시지를 입력하세요"
+          type="text"
+          name="message"
+          id="text-message"
+          class="input-message"
+        ></textarea>
+        <div class="msg-btn-box">
+          <button class="btn-msg send" id="btn-type-done">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <button class="btn-msg cancel" id="btn-type-cancel">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
+      </div>
+      <div class="fixed-ratio">
+        <div
+          class="preview"
+          style="background-image: url('<%=background%>')"
+        ></div>
+        <div class="btn-box" id="main-options">
+          <div class="btn-item" id="type-message">텍스트로 남기기</div>
+          <div class="btn-item" id="drawing-message">손글씨로 남기기</div>
+          <div class="btn-item" onclick="location.href='/'">홈으로 이동</div>
         </div>
-    </body>
-    <script src="/script/main.js"></script>
-    <script src="/script/gallery.js"></script>
+        <div class="btn-box hidden" id="text-options">
+          <div class="btn-item" id="move-cancel-btn">취소</div>
+          <div class="btn-item" id="move-done-btn">완료</div>
+          <span class="comment moving-box"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/script/main.js"></script>
+  <script src="/script/gallery.js"></script>
 </html>

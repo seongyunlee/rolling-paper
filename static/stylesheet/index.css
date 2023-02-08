@@ -1,31 +1,31 @@
-.home-menu{
-    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-    width:100%;
-    height: 100%;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding:5rem;
-    overflow: hidden;
-    font-size: 5rem;
+.home-menu {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  overflow: hidden;
+  font-size: 5rem;
 }
-.menu-item{
-    font-size: 3.5rem;
-    text-align: center;
+.menu-item {
+  font-size: 3.5rem;
+  text-align: center;
 }
-div.paper{
-    justify-content: space-between;
-    font-size: 3rem;
+div.paper {
+  justify-content: space-between;
+  font-size: 3rem;
 }
-.paper-desc{
-    color:black;
-    text-align: center;
+.paper-desc {
+  color: black;
+  text-align: center;
 }
-.link-box{
-    justify-self: flex-end;
-    width: 90%;
-    bottom: 10%;
-    display: flex;
-    justify-content: space-between;
+.link-box {
+  justify-self: flex-end;
+  width: 90%;
+  bottom: 10%;
+  display: flex;
+  justify-content: space-between;
 }

@@ -3,33 +3,50 @@ const http = require("http");
 const app = express();
 const path = require("path");
 const server = http.createServer(app);
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://seongyun:gj9r33s&@cluster0.nrin9zm.mongodb.net/?retryWrites=true&w=majority";
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const MySQLStore = require("express-mysql-session")(session);
+const configJson = require("./config.json");
 
-exports.mongo = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+exports.mongo = new MongoClient(configJson.mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
 
+var sessionStore = new MySQLStore(configJson.sql);
 
+app.use(
+  session({
+    secret: configJson.sessionSecret,
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+    },
+  })
+);
 
-const indexRouter = require('./router/index')
-const createRouter = require('./router/create')
-const paperRouter = require('./router/paper')
-const userRouter = require('./router/user')
+const indexRouter = require("./router/index");
+const createRouter = require("./router/create");
+const paperRouter = require("./router/paper");
+const userRouter = require("./router/user");
 
 app.use(express.static(path.join(__dirname, "static")));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-app.use('/',indexRouter);
-app.use('/create',createRouter);
-app.use('/paper',paperRouter);
-app.use('/user',userRouter);
-
+app.use("/", indexRouter);
+app.use("/create", createRouter);
+app.use("/paper", paperRouter);
+app.use("/user", userRouter);
 
 var port = 80;
 

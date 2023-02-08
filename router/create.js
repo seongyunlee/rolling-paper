@@ -1,17 +1,11 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const controller = require('../controllers/create');
-
+const controller = require("../controllers/create");
 
 // /create/
-router.get('/',controller.create);
+router.get("/", controller.create);
 
 // create/new
-router.get('/new',controller.createNew);
+router.get("/new", controller.createNew);
 
-
-
-
-
-module.exports = router
-
+module.exports = router;
