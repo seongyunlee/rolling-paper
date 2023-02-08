@@ -19,7 +19,7 @@ exports.createNew = async (req, res) => {
   await coll.insertOne({
     id: newid,
     image_src: location,
-    owner: req.cookies.user_id,
+    owner: req.session.email,
     message: [],
   });
   res.redirect("http://" + req.headers.host + `/paper/share/${newid}`);
