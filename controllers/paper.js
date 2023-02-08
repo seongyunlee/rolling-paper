@@ -10,10 +10,9 @@ exports.share = async (req, res) => {
     const db = mongo.db("rollingpaper");
     const coll = db.collection("paper");
     console.log(db, coll, req.params.paperId);
-    const result = await coll
-      .find({ id: Number(req.params.paperId) })
-      .toArray()
-      .at(0);
+    const result = await (
+      await coll.find({ id: Number(req.params.paperId) }).toArray()
+    ).at(0);
     const baseImage = `${configJson.s3Url}/rollingpaper/userImage/${req.params.paperId}.png`;
     res.render("share", {
       paperId: result.id,
@@ -22,6 +21,7 @@ exports.share = async (req, res) => {
       url: `${configJson.domain}/paper/${result.id}`,
     });
   } catch (err) {
+    console.log(err);
     res.redirect("/");
   }
 };
