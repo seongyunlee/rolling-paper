@@ -18,6 +18,7 @@ exports.createNew = async (req, res) => {
   const location = copyBase(req.query.gradientId, newid);
   await coll.insertOne({
     id: newid,
+    title: req.query.title,
     image_src: location,
     owner: req.session.email,
     message: [],
