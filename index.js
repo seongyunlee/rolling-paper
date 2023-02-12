@@ -1,14 +1,26 @@
 const express = require("express");
 const http = require("http");
+const https = require("https");
 const app = express();
+const app2 = express();
+const fs = require("fs");
 const path = require("path");
-const server = http.createServer(app);
+const server = http.createServer(app2);
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const configJson = require("./config.json");
+const pemConfig = require("./etc/pem_config");
+
+const credentials = {
+  key: fs.readFileSync("etc/kkrupp.site/private.key"),
+  cert: fs.readFileSync("etc/kkrupp.site/certificate.crt"),
+  ca: fs.readFileSync("etc/kkrupp.site/ca_bunble.crt"),
+};
+
+const httpsServer = https.createServer(credentials, app);
 
 exports.mongo = new MongoClient(configJson.mongoUri, {
   useNewUrlParser: true,
@@ -52,4 +64,8 @@ var port = 80;
 
 server.listen(port, function () {
   console.log("server on! http://localhost:" + port);
+});
+
+httpsServer.listen(443, function () {
+  console.log("server on! http://localhost:" + 443);
 });
