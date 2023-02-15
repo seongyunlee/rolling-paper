@@ -12,12 +12,11 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const configJson = require("./config.json");
-const pemConfig = require("./etc/pem_config");
 
 const credentials = {
-  key: fs.readFileSync("etc/kkrupp.site/private.key"),
-  cert: fs.readFileSync("etc/kkrupp.site/certificate.crt"),
-  ca: fs.readFileSync("etc/kkrupp.site/ca_bunble.crt"),
+  key: fs.readFileSync("./etc/kkrupp.site/private.key"),
+  cert: fs.readFileSync("./etc/kkrupp.site/certificate.crt"),
+  ca: fs.readFileSync("./etc/kkrupp.site/ca_bundle.crt"),
 };
 
 const httpsServer = https.createServer(credentials, app);
