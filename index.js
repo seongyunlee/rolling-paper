@@ -60,7 +60,7 @@ app.use("/paper", paperRouter);
 app.use("/user", userRouter);
 
 app2.use("*", (req, res) => {
-  res.redirect(`https://${configJson.domain}`);
+  res.redirect(`https://${configJson.domain}` + req.url);
 });
 
 var port = 80;
