@@ -155,8 +155,8 @@ function dragStart(e) {
   initialX = e.clientX || e.touches[0].clientX;
   initialY = e.clientY || e.touches[0].clientY;
 
-  xOffset = initialX - element.offsetLeft;
-  yOffset = initialY - element.offsetTop;
+  xOffset = initialX - movingBox.offsetLeft;
+  yOffset = initialY - movingBox.offsetTop;
 
   isDragging = true;
 }
@@ -177,8 +177,8 @@ function drag(e) {
     xOffset = currentX - initialX;
     yOffset = currentY - initialY;
 
-    element.style.top = element.offsetTop + yOffset + "px";
-    element.style.left = element.offsetLeft + xOffset + "px";
+    movingBox.style.top = element.offsetTop + yOffset + "px";
+    movingBox.style.left = element.offsetLeft + xOffset + "px";
 
     initialX = currentX;
     initialY = currentY;
