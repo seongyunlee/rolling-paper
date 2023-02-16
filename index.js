@@ -59,7 +59,7 @@ app.use("/create", createRouter);
 app.use("/paper", paperRouter);
 app.use("/user", userRouter);
 
-app2.use("*", (req, res) => {
+app2.use((req, res) => {
   console.log(req.url);
   res.redirect(`https://${configJson.domain}${req.url}`);
 });
