@@ -177,8 +177,8 @@ function drag(e) {
     xOffset = currentX - initialX;
     yOffset = currentY - initialY;
 
-    movingBox.style.top = element.offsetTop + yOffset + "px";
-    movingBox.style.left = element.offsetLeft + xOffset + "px";
+    movingBox.style.top = movingBox.offsetTop + yOffset + "px";
+    movingBox.style.left = movingBox.offsetLeft + xOffset + "px";
 
     initialX = currentX;
     initialY = currentY;
