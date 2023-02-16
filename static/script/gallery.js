@@ -130,13 +130,57 @@ typeDoneBtn.addEventListener("click", doneType);
 typeMessageBtn.addEventListener("click", typeMessage);
 preview.addEventListener("touchmove", moveBox);
 preview.addEventListener("touchstart", startMoveBox);
-movingBox.addEventListener("mousedown", mouseStartMoveBox);
-movingBox.addEventListener("mousemove", moveBox);
-movingBox.addEventListener("mouseup", () => {
-  moving = false;
-});
-movingBox.addEventListener("touchmove", moveBox);
-movingBox.addEventListener("touchstart", startMoveBox);
 posOk.addEventListener("click", sendComment);
 addEventListener("resize", moveBoxOnResize);
 addEventListener("load", setWindowSize);
+
+//draggable element
+
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+movingBox.addEventListener("mousedown", dragStart);
+movingBox.addEventListener("touchstart", dragStart);
+movingBox.addEventListener("mouseup", dragEnd);
+movingBox.addEventListener("touchend", dragEnd);
+movingBox.addEventListener("mousemove", drag);
+movingBox.addEventListener("touchmove", drag);
+
+function dragStart(e) {
+  initialX = e.clientX || e.touches[0].clientX;
+  initialY = e.clientY || e.touches[0].clientY;
+
+  xOffset = initialX - element.offsetLeft;
+  yOffset = initialY - element.offsetTop;
+
+  isDragging = true;
+}
+
+function dragEnd(e) {
+  initialX = currentX;
+  initialY = currentY;
+
+  isDragging = false;
+}
+
+function drag(e) {
+  if (isDragging) {
+    e.preventDefault();
+    currentX = e.clientX || e.touches[0].clientX;
+    currentY = e.clientY || e.touches[0].clientY;
+
+    xOffset = currentX - initialX;
+    yOffset = currentY - initialY;
+
+    element.style.top = element.offsetTop + yOffset + "px";
+    element.style.left = element.offsetLeft + xOffset + "px";
+
+    initialX = currentX;
+    initialY = currentY;
+  }
+}
