@@ -174,9 +174,20 @@ function drag(e) {
 
     xOffset = currentX - initialX;
     yOffset = currentY - initialY;
-
-    movingBox.style.top = movingBox.offsetTop + yOffset + "px";
-    movingBox.style.left = movingBox.offsetLeft + xOffset + "px";
+    if (
+      preview.offsetTop < movingBox.offsetTop + yOffset &&
+      movingBox.offsetTop + yOffset + movingBox.offsetHeight <
+        preview.offsetTop + preview.offsetHeight
+    ) {
+      movingBox.style.top = movingBox.offsetTop + yOffset + "px";
+    }
+    if (
+      preview.offsetLeft < movingBox.offsetLeft + xOffset &&
+      movingBox.offsetLeft + xOffset + movingBox.offsetWidth <
+        preview.offsetLeft + preview.offsetWidth
+    ) {
+      movingBox.style.left = movingBox.offsetLeft + xOffset + "px";
+    }
 
     initialX = currentX;
     initialY = currentY;
