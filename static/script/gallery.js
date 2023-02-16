@@ -128,8 +128,6 @@ const cancelType = () => {
 typeCancelBtn.addEventListener("click", cancelType);
 typeDoneBtn.addEventListener("click", doneType);
 typeMessageBtn.addEventListener("click", typeMessage);
-preview.addEventListener("touchmove", moveBox);
-preview.addEventListener("touchstart", startMoveBox);
 posOk.addEventListener("click", sendComment);
 addEventListener("resize", moveBoxOnResize);
 addEventListener("load", setWindowSize);
