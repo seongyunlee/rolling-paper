@@ -59,10 +59,6 @@ app.use("/create", createRouter);
 app.use("/paper", paperRouter);
 app.use("/user", userRouter);
 
-app2.use("*", (req, res) => {
-  res.redirect(`https://${configJson.domain}`);
-});
-
 var port = 80;
 
 server.listen(port, function () {
@@ -70,5 +66,5 @@ server.listen(port, function () {
 });
 
 httpsServer.listen(443, function () {
-  console.log("server on! https://localhost:" + 443);
+  console.log("server on! http://localhost:" + 443);
 });
