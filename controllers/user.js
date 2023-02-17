@@ -83,7 +83,7 @@ async function getKakaoToken(code, url) {
 exports.koauth = async (req, res) => {
   console.log(req.host, req.orginalUrl);
   console.log(req.body?.id_token);
-
+  console.log(req.query);
   /*
   const { email, password } = req.body;
   const db = mongo.db("rollingpaper");
