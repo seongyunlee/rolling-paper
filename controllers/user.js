@@ -7,24 +7,9 @@ const SALT_LENGTH = 10;
 const axios = require("axios");
 const configJson = require("../config.json");
 // get post data body and redirect to referer
-exports.login = async (req, res) => {
-  const { email, password } = req.body;
-  const db = mongo.db("rollingpaper");
-  const coll = db.collection("user");
-  const result = await coll.findOne({ id: email });
-  if (result && bcrypt.compareSync(password, result.password)) {
-    req.session.email = email;
-    req.session.save(() => {
-      res.redirect("/");
-    });
-  } else {
-    res.send(
-      "<script>alert('비밀번호가 틀렸습니다.');location.href='/login';</script>"
-    );
-  }
-};
+
 exports.logout = (req, res) => {
-  if (req.session.email) {
+  if (req.session.uid) {
     req.session.destroy(() => res.redirect("/"));
   }
 };
@@ -44,10 +29,10 @@ const register = async (kakao_uid) => {
 };
 //make /list/{user_id} page
 exports.list = async (req, res) => {
-  const email = req.session.email;
+  const email = req.session?.uid;
   const db = mongo.db("rollingpaper");
   const coll = db.collection("paper");
-  const result = await coll.find({ owner: email }).toArray();
+  const result = await coll.find({ owner: uid }).toArray();
   res.render("list", { items: result });
 };
 
@@ -79,6 +64,9 @@ exports.koauth = async (req, res) => {
   console.log(req.body?.id_token);
   console.log(req.query);
   const response = await getKakaoToken(req.query.code);
+  if (!response?.id_token) {
+    res.redirect("/");
+  }
   const [header, payload, signature] = response.id_token.split(".");
   const user_info = JSON.parse(
     Buffer.from(payload, "base64").toString("utf-8")

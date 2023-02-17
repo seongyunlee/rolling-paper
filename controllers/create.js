@@ -20,14 +20,14 @@ exports.createNew = async (req, res) => {
     id: newid,
     title: req.query.title,
     image_src: location,
-    owner: req.session.email,
+    owner: req.session.uid,
     message: [],
   });
   res.redirect("http://" + req.headers.host + `/paper/share/${newid}`);
 };
 //craete new message
 exports.create = async (req, res) => {
-  if (req.session.email) {
+  if (req.session.uid) {
     res.render("create", {});
   } else {
     res.send(
