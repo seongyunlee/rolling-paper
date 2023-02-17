@@ -60,7 +60,7 @@ exports.list = async (req, res) => {
 async function getKakaoToken(code) {
   try {
     const response = await axios.post(
-      "https://kauth.kakao.com/ouath/token",
+      "https://kauth.kakao.com/oauth/token",
       {
         grant_type: "authorization_code",
         client_id: configJson.kakao_api,
