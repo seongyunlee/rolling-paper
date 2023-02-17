@@ -39,7 +39,7 @@ const register = async (kakao_uid) => {
     console.log(result);
     break;
   }
-  await coll.insertOne({ uid: newid, kakao_uid: hashed });
+  await coll.insertOne({ uid: newid, kakao_uid: kakao_uid });
   return newid;
 };
 //make /list/{user_id} page
