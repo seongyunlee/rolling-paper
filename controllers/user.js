@@ -88,10 +88,11 @@ exports.koauth = async (req, res) => {
   const db = mongo.db("rollingpaper");
   const coll = db.collection("user");
   const result = await coll.findOne({ kakao_uid: user_info.sub });
+  let uid = null;
   if (result) {
-    const uid = result.uid;
+    uid = result.uid;
   } else {
-    const uid = register(user_info.sub);
+    uid = register(user_info.sub);
   }
   req.session.uid = uid;
   req.session.save(() => {
