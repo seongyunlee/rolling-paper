@@ -55,10 +55,7 @@ exports.list = async (req, res) => {
   res.render("list", { items: result });
 };
 
-exports.oauth = async (req, res) => {
-  const email = req.session.email;
-  const db = mongo.db("rollingpaper");
-  const coll = db.collection("paper");
-  const result = await coll.find({ owner: email }).toArray();
-  res.render("list", { items: result });
+exports.koauth = async (req, res) => {
+  console.log(req);
+  res.send(<div>로그인 테스트</div>);
 };
