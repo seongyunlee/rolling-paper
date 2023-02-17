@@ -30,9 +30,6 @@ exports.logout = (req, res) => {
 };
 // get post data body, make new user entitiy and redirect to referer
 const register = async (kakao_uid) => {
-  const { email, password } = req.body;
-  const db = mongo.db("rollingpaper");
-  const coll = db.collection("user");
   let newid = 0;
   while (true) {
     newid = Math.floor(Math.random() * 8999999999) + 1000000000;
