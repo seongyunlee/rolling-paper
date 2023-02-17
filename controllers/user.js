@@ -80,7 +80,7 @@ exports.koauth = async (req, res) => {
   console.log(req.body?.id_token);
   console.log(req.query);
   const response = await getKakaoToken(req.query.code);
-  const { header, payload, signature } = response.id_token;
+  const [header, payload, signature] = response.id_token.split(".");
   const user_info = JSON.parse(
     Buffer.from(payload, "base64").toString("utf-8")
   );
