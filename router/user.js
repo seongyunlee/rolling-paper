@@ -8,5 +8,5 @@ router.post("/login", controller.login);
 router.get("/logout", controller.logout);
 router.post("/register", controller.register);
 router.get("/list", controller.list);
-router.get("/oauth",controller.oauth);
+router.get("/koauth", controller.oauth);
 module.exports = router;
