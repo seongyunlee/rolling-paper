@@ -11,25 +11,9 @@
       <div class="fixed-ratio">
         <div class="content">
           <div class="title">연말의 롤링페이퍼</div>
-          <form action="/user/login" method="post">
-            <input
-              id="input-id"
-              name="email"
-              type="email"
-              placeholder="이메일"
-              required=""
-              value=""
-            /><br />
-            <input
-              id="input-pwd"
-              name="password"
-              type="password"
-              placeholder="비밀번호"
-              required=""
-              value=""
-            />
-            <button type="submit">로그인</button>
-          </form>
+          <button onclick="()=>{location.href=<%=url=>">
+            <div class="kakao-oauth">카카오 로그인</div>
+          </button>
           <br />
           <a href="/register">회원가입</a>
           <a href="/">홈으로</a>

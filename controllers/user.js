@@ -3,7 +3,6 @@ const { createCanvas } = require("canvas");
 const { request } = require("express");
 const cookie = require("cookie");
 const bcrypt = require("bcrypt");
-
 const SALT_LENGTH = 10;
 
 // get post data body and redirect to referer
@@ -49,6 +48,14 @@ exports.register = async (req, res) => {
 };
 //make /list/{user_id} page
 exports.list = async (req, res) => {
+  const email = req.session.email;
+  const db = mongo.db("rollingpaper");
+  const coll = db.collection("paper");
+  const result = await coll.find({ owner: email }).toArray();
+  res.render("list", { items: result });
+};
+
+exports.oauth = async (req, res) => {
   const email = req.session.email;
   const db = mongo.db("rollingpaper");
   const coll = db.collection("paper");
