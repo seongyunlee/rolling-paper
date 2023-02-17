@@ -56,8 +56,12 @@ button {
   font-weight: normal;
 }
 .kakao-oauth {
-  width: 70%;
-  background-image: url("/asset/kakao_login_medium_narrow.png");
-  resize: contain;
+  width: 80%;
+  background-image: url(/asset/kakao_login_medium_narrow.png);
+  background-size: cover;
+  aspect-ratio: 64/15;
+  background-color: transparent;
+  border-radius: 0;
   height: auto;
+  border: none;
 }
