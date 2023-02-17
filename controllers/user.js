@@ -57,14 +57,14 @@ exports.list = async (req, res) => {
   res.render("list", { items: result });
 };
 
-async function getKakaoToken(code, url) {
+async function getKakaoToken(code) {
   try {
     const response = await axios.post(
-      url,
+      "https://kauth.kakao.com/ouath/token",
       {
         grant_type: "authorization_code",
         client_id: configJson.kakao_api,
-        redirect_uri: url,
+        redirect_uri: `https://${configJson.domain}/user/kauth`,
         code: code,
       },
       {
@@ -84,6 +84,11 @@ exports.koauth = async (req, res) => {
   console.log(req.host, req.orginalUrl);
   console.log(req.body?.id_token);
   console.log(req.query);
+  const response = await getKakaoToken(req.query.code);
+  console.log(response);
+  res.send(
+    "<script>alert('비밀번호가 틀렸습니다.');location.href='/login';</script>"
+  );
   /*
   const { email, password } = req.body;
   const db = mongo.db("rollingpaper");
