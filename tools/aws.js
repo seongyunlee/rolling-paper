@@ -23,7 +23,6 @@ exports.imageUpload = async (userId, base64) => {
   } catch (error) {
     console.log(error);
   }
-  console.log(location, key);
   return location;
 };
 
@@ -43,10 +42,8 @@ exports.copyBase = async (gradientId, paperId) => {
     const { Location, Key } = await s3.copyObject(params).promise();
     location = Location;
     key = Key;
-    console.log(params);
   } catch (error) {
     console.log(error);
   }
-  console.log(location, key);
   return location;
 };

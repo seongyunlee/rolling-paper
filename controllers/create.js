@@ -12,7 +12,6 @@ exports.createNew = async (req, res) => {
   while (true) {
     newid = Math.floor(Math.random() * 8999999999) + 1000000000;
     const result = await coll.find({ id: newid }).toArray();
-    console.log(result);
     break;
   }
   const location = copyBase(req.query.gradientId, newid);
@@ -20,14 +19,14 @@ exports.createNew = async (req, res) => {
     id: newid,
     title: req.query.title,
     image_src: location,
-    owner: req.session.email,
+    owner: req.session.uid,
     message: [],
   });
   res.redirect("http://" + req.headers.host + `/paper/share/${newid}`);
 };
 //craete new message
 exports.create = async (req, res) => {
-  if (req.session.email) {
+  if (req.session.uid) {
     res.render("create", {});
   } else {
     res.send(

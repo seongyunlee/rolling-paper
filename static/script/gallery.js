@@ -93,8 +93,6 @@ const sendComment = (e) => {
     const message = movingBox.innerHTML;
     const form = document.createElement("form");
     form.setAttribute("method", "post");
-    console.log(location.href.split("/"));
-    console.log(posX, posY);
     form.setAttribute(
       "action",
       "/paper/newMessage/" + location.href.split("/").at(-1)
