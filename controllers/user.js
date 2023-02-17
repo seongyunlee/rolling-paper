@@ -29,7 +29,7 @@ const register = async (kakao_uid) => {
 };
 //make /list/{user_id} page
 exports.list = async (req, res) => {
-  const email = req.session?.uid;
+  const uid = req.session?.uid;
   const db = mongo.db("rollingpaper");
   const coll = db.collection("paper");
   const result = await coll.find({ owner: uid }).toArray();
