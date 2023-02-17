@@ -64,7 +64,7 @@ async function getKakaoToken(code) {
       {
         grant_type: "authorization_code",
         client_id: configJson.kakao_api,
-        redirect_uri: `https://${configJson.domain}/user/kauth`,
+        redirect_uri: `https://${configJson.domain}/user/koauth`,
         code: code,
       },
       {
