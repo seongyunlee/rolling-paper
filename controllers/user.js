@@ -57,5 +57,5 @@ exports.list = async (req, res) => {
 
 exports.koauth = async (req, res) => {
   console.log(req);
-  res.send(<div>로그인 테스트</div>);
+  res.send("<div>로그인 테스트</div>");
 };
