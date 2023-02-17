@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 const SALT_LENGTH = 10;
 const axios = require("axios");
 const configJson = require("../config.json");
-const JSON = require("js");
 // get post data body and redirect to referer
 exports.login = async (req, res) => {
   const { email, password } = req.body;
