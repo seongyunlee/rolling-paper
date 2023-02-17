@@ -12,7 +12,6 @@ exports.createNew = async (req, res) => {
   while (true) {
     newid = Math.floor(Math.random() * 8999999999) + 1000000000;
     const result = await coll.find({ id: newid }).toArray();
-    console.log(result);
     break;
   }
   const location = copyBase(req.query.gradientId, newid);

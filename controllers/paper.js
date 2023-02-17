@@ -9,7 +9,6 @@ exports.share = async (req, res) => {
   try {
     const db = mongo.db("rollingpaper");
     const coll = db.collection("paper");
-    console.log(db, coll, req.params.paperId);
     const result = await (
       await coll.find({ id: Number(req.params.paperId) }).toArray()
     ).at(0);

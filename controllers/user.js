@@ -21,7 +21,6 @@ const register = async (kakao_uid) => {
   while (true) {
     newid = Math.floor(Math.random() * 8999999999) + 1000000000;
     const result = await coll.find({ id: newid }).toArray();
-    console.log(result);
     break;
   }
   await coll.insertOne({ uid: newid, kakao_uid: kakao_uid });
@@ -52,7 +51,6 @@ async function getKakaoToken(code) {
         },
       }
     );
-    console.log(response.data); // handle response data as needed
     return response.data;
   } catch (error) {
     console.error(error);
@@ -60,9 +58,6 @@ async function getKakaoToken(code) {
 }
 
 exports.koauth = async (req, res) => {
-  console.log(req.host, req.orginalUrl);
-  console.log(req.body?.id_token);
-  console.log(req.query);
   const response = await getKakaoToken(req.query.code);
   if (!response?.id_token) {
     res.redirect("/");
@@ -71,7 +66,6 @@ exports.koauth = async (req, res) => {
   const user_info = JSON.parse(
     Buffer.from(payload, "base64").toString("utf-8")
   );
-  console.log(user_info);
 
   const db = mongo.db("rollingpaper");
   const coll = db.collection("user");
