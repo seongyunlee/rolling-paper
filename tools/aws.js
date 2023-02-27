@@ -35,7 +35,6 @@ exports.copyBase = async (gradientId, paperId) => {
     ContentEncoding: "base64",
     ContentType: `image/png`,
   };
-  console.log(params);
   let location = "";
   let key = "";
   try {
