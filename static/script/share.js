@@ -10,7 +10,7 @@ const shareLink = (link) => {
   });
 };
 
-const clipboardCopy = () => {
+const clipboardCopy = (link) => {
   window.navigator.clipboard.writeText(link).then(() => {
     // 복사가 완료되면 이 부분이 호출된다.
     alert("복사 완료!");

@@ -17,10 +17,10 @@
                     <label class="choose-title" ><%=title%></label>
                     <div class="paper-url" id="paper-url"><%=url%></div>
                     <div class="share-box">
-                        <div onclick="copy(<%=url%>)" class="share-item copy-link">
+                        <div onclick="clipboardCopy('<%=url%>'')" class="share-item copy-link">
                             <i class="fa-solid fa-copy fa"></i>
                         </div>
-                        <div onclick="share(<%=url%>)" class="share-item share-kakao">
+                        <div onclick="shareLink('<%=url%>')" class="share-item share-kakao">
                             <i class="fa-solid fa-share-from-square"></i>
                         </div>
                         <div onclick="location.href='/paper/<%=paperId%>'" class="share-item btn-draw">
