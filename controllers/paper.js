@@ -1,8 +1,10 @@
 const { mongo } = require("../index");
-const { createCanvas, Image } = require("canvas");
+const { createCanvas, Image, registerFont } = require("canvas");
 const { request } = require("express");
 const { imageUpload } = require("../tools/aws");
 const configJson = require("../config.json");
+
+registerFont("../static/fonts/gabia_solmee.ttf", { family: "Gabia Solmee" });
 
 //make /share page
 exports.share = async (req, res) => {
@@ -58,7 +60,7 @@ exports.newMessage = async (req, res) => {
         console.log(req.body.posX * 300, req.body.posY * 500);
         if (true) {
           ctx.textBaseline = "top";
-          ctx.font = "10px Arial";
+          ctx.font = '12px "Gabia Solmee"';
           ctx.fillText(
             req.body.message.trim(),
             req.body.posX * 300,

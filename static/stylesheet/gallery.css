@@ -75,6 +75,7 @@ div.text-button-box {
   height: auto;
   width: auto;
   box-sizing: border-box;
+  font-size: 12px;
 }
 div.message-box {
   position: absolute;
