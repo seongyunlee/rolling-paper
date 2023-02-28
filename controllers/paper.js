@@ -55,6 +55,7 @@ exports.newMessage = async (req, res) => {
       canvas.height = 500;
       baseImage.onload = () => {
         ctx.drawImage(baseImage, 0, 0);
+        console.log(req.body.posX * 300, req.body.posY * 500);
         if (true) {
           ctx.textBaseline = "top";
           ctx.font = "10px Arial";
