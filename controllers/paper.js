@@ -43,31 +43,38 @@ exports.newMessage = async(req,res) =>{
 }*/
 
 exports.newMessage = async (req, res) => {
-  if (req.body.message == "") {
-    //res.redirect(req.get('Referer'));
-  } else {
-    const pageId = req.get("Referer").split("/").at(-1);
-    const canvas = createCanvas();
-    const ctx = canvas.getContext("2d");
-    const baseImage = new Image();
-    canvas.width = 300;
-    canvas.height = 500;
-    baseImage.onload = () => {
-      ctx.drawImage(baseImage, 0, 0);
-      if (true) {
-        ctx.textBaseline = "top";
-        ctx.font = "10px Arial";
-        ctx.fillText(
-          req.body.message.trim(),
-          req.body.posX * 300,
-          req.body.posY * 500
-        );
-      } else {
-      }
-      imageUpload(pageId, canvas.toDataURL());
-      res.redirect(req.get("Referer"));
-    };
-    baseImage.src = `${configJson.s3Url}/rollingpaper/userImage/${pageId}.png`;
+  try {
+    if (req.body.message == "") {
+      //res.redirect(req.get('Referer'));
+    } else {
+      const pageId = req.get("Referer").split("/").at(-1);
+      const canvas = createCanvas();
+      const ctx = canvas.getContext("2d");
+      const baseImage = new Image();
+      canvas.width = 300;
+      canvas.height = 500;
+      baseImage.onload = () => {
+        ctx.drawImage(baseImage, 0, 0);
+        if (true) {
+          ctx.textBaseline = "top";
+          ctx.font = "10px Arial";
+          ctx.fillText(
+            req.body.message.trim(),
+            req.body.posX * 300,
+            req.body.posY * 500
+          );
+          ctx.lineWidth = 3;
+          ctx.beginPath(req.body.posX * 300, req.body.posY * 500);
+          ctx.lineTo(req.body.posX * 300 + 10, req.body.posY * 500 + 10);
+        } else {
+        }
+        imageUpload(pageId, canvas.toDataURL());
+        res.redirect(req.get("Referer"));
+      };
+      baseImage.src = `${configJson.s3Url}/rollingpaper/userImage/${pageId}.png`;
+    }
+  } catch (err) {
+    console.log(err);
   }
 };
 
