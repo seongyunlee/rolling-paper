@@ -22,7 +22,7 @@ const setWindowSize = (e) => {
 const textDone = () => {
   textComment.classList.add("hidden");
   movingBox.classList.remove("hidden");
-  movingBox.innerHTML = textField.value;
+  movingBox.innerText = textField.value;
   const ctx = repeatCanvas.getContext("2d");
   ctx.textBaseline = "top";
   ctx.font = "10px Arial";
