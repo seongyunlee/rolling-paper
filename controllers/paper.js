@@ -65,7 +65,7 @@ exports.newMessage = async (req, res) => {
           );
           ctx.strokeStyle = "black";
           ctx.lineWidth = 3;
-          ctx.beginPath(req.body.posX * 300, req.body.posY * 500);
+          ctx.moveTo(req.body.posX * 300, req.body.posY * 500);
           ctx.lineTo(req.body.posX * 300 + 10, req.body.posY * 500 + 10);
           ctx.stroke();
         } else {
