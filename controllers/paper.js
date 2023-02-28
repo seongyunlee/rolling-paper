@@ -66,11 +66,6 @@ exports.newMessage = async (req, res) => {
             req.body.posX * 300,
             req.body.posY * 500
           );
-          ctx.strokeStyle = "black";
-          ctx.lineWidth = 3;
-          ctx.moveTo(req.body.posX * 300, req.body.posY * 500);
-          ctx.lineTo(req.body.posX * 300 + 10, req.body.posY * 500 + 10);
-          ctx.stroke();
         } else {
         }
         imageUpload(pageId, canvas.toDataURL());
