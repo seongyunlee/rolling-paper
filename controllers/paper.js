@@ -4,7 +4,7 @@ const { request } = require("express");
 const { imageUpload } = require("../tools/aws");
 const configJson = require("../config.json");
 
-registerFont("/static/fonts/gabia_solmee.ttf", { family: "Gabia Solmee" });
+registerFont("./static/fonts/gabia_solmee.ttf", { family: "Gabia Solmee" });
 
 //make /share page
 exports.share = async (req, res) => {
