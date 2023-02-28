@@ -8,7 +8,6 @@ const mainOptionBox = document.querySelector("#main-options");
 const typeDoneBtn = document.querySelector("#btn-type-done");
 const typeCancelBtn = document.querySelector("#btn-type-cancel");
 const typeField = document.querySelector("#text-message");
-const repeatCanvas = document.querySelector(".text-repeat");
 
 let moving = false;
 let prevX, prevY;
@@ -22,11 +21,7 @@ const setWindowSize = (e) => {
 const textDone = () => {
   textComment.classList.add("hidden");
   movingBox.classList.remove("hidden");
-  movingBox.innerText = textField.value;
-  const ctx = repeatCanvas.getContext("2d");
-  ctx.textBaseline = "top";
-  ctx.font = "10px Arial";
-  ctx.fillText(textField.value, 0, 0);
+  movingBox.innerHTML = textField.value;
 };
 
 const moveBox = (e) => {
