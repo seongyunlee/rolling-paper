@@ -178,6 +178,7 @@ function drag(e) {
         preview.offsetTop + preview.offsetHeight
     ) {
       movingBox.style.top = movingBox.offsetTop + yOffset + "px";
+      initialY = currentY;
     }
     if (
       preview.offsetLeft < movingBox.offsetLeft + xOffset &&
@@ -185,9 +186,7 @@ function drag(e) {
         preview.offsetLeft + preview.offsetWidth
     ) {
       movingBox.style.left = movingBox.offsetLeft + xOffset + "px";
+      initialX = currentX;
     }
-
-    initialX = currentX;
-    initialY = currentY;
   }
 }
