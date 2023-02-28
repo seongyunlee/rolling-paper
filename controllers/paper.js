@@ -53,15 +53,11 @@ exports.newMessage = async (req, res) => {
     canvas.width = 300;
     canvas.height = 500;
     baseImage.onload = () => {
-      ctx.drawImage(baseImage, 0, 0);
+      ctx.drawImage(baseImage, eq.body.posX * 300, eq.body.posX * 300);
       if (true) {
         ctx.textBaseline = "top";
         ctx.font = "10px Arial";
-        ctx.fillText(
-          req.body.message.trim(),
-          req.body.posX * 300,
-          req.body.posY * 500
-        );
+        ctx.fillText(req.body.message.trim(), 0, 0);
       } else {
       }
       imageUpload(pageId, canvas.toDataURL());
