@@ -20,11 +20,7 @@
           <button class="btn-msg send" id="btn-type-done">
             <i class="fa-solid fa-check"></i>
           </button>
-          <button
-            class="btn-msg cancel"
-            id="btn-type-cancel"
-            onclick="location.reload()"
-          >
+          <button class="btn-msg cancel" id="btn-type-cancel">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
@@ -42,7 +38,13 @@
           <div class="btn-item" onclick="location.href='/'">홈으로 이동</div>
         </div>
         <div class="btn-box hidden" id="text-options">
-          <div class="btn-item" id="move-cancel-btn">취소</div>
+          <div
+            class="btn-item"
+            id="move-cancel-btn"
+            onclick="location.reload()"
+          >
+            취소
+          </div>
           <div class="btn-item" id="move-done-btn">완료</div>
           <span class="comment moving-box"></span>
         </div>
