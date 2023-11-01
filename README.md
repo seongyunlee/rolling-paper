@@ -4,8 +4,12 @@ rolling paper website : Node, express with ejs engine
 
 ![IMG_9006 PNG](https://user-images.githubusercontent.com/79950005/230884284-90b1b271-cfc6-491e-841e-be72041c25d0.png)
 
-배포중
-kkrupp.site
+
+# Installation
+```bash
+$ npm install
+$ node index.js
+```
 
 
 구현 기능 :
